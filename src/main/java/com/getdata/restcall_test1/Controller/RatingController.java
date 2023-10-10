@@ -17,14 +17,14 @@ public class RatingController {
     @Autowired
     private RatingService ratingService;
 
-    // Endpoint to get books based on a rating value
+
     @GetMapping("/books/{ratingValue}")
     public ResponseEntity<List<Books>> getBooksByRatingOrHigher(@PathVariable Integer ratingValue){
         List<Books> books = ratingService.getBooksByRatingOrHigher(ratingValue);
         return ResponseEntity.ok(books);
     }
 
-    // If you ever want to get the actual ratings based on a value
+
     @GetMapping("/{ratingValue}")
     public ResponseEntity<List<Rating>> getRatingsByValue(@PathVariable Integer ratingValue) {
         List<Rating> ratings = ratingService.getRatingsByValue(ratingValue);
