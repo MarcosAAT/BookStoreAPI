@@ -60,7 +60,7 @@ public class Books {
     @Getter
     @Setter
     @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "AuthorID")
     private Author author;
 
