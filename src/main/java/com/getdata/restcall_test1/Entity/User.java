@@ -25,7 +25,7 @@ public class User {
     @Getter
     @Setter
     @Column(name = "Username", unique = true)
-    private String Username;
+    private String username;
 
     @Getter
     @Setter
