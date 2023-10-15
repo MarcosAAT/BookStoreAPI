@@ -16,4 +16,9 @@ public class UserService {
     public List<User> getUsersByUsername(String Username){
         return userRepo.findByUsername(Username);
     }
+
+    public User postUser(User user){
+        userRepo.save(user);
+        return user;
+    }
 }

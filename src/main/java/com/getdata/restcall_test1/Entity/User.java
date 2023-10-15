@@ -33,6 +33,7 @@ public class User {
     private String PW;
 
     @Getter
+    @Setter
     @Column(name = "FullName")
     private String FullName;
 

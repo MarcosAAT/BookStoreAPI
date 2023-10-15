@@ -5,13 +5,12 @@ import com.getdata.restcall_test1.Entity.User;
 import com.getdata.restcall_test1.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/users")
 public class UserController {
 
     private UserService userService;
@@ -24,5 +23,11 @@ public class UserController {
     public ResponseEntity<List<User>> getUsersByUsername(@PathVariable String Username) {
         List<User> users = userService.getUsersByUsername(Username);
         return ResponseEntity.ok(users);
+    }
+
+    @PostMapping("/postUser")
+    public User postUser(User user){
+        userService.postUser(user);
+        return user;
     }
 }
