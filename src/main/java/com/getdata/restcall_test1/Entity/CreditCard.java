@@ -1,6 +1,7 @@
 package com.getdata.restcall_test1.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,9 +34,14 @@ public class CreditCard {
 
     @Getter
     @Setter
+    @Column
+    private String UserID;
+
+    @Getter
+    @Setter
+    @JsonIgnore
     @ManyToOne
-    @JsonBackReference
-    @JoinColumn(name = "UserID")
+    @JoinColumn(name = "UserID", insertable = false, updatable = false)
     private User user;
 
 

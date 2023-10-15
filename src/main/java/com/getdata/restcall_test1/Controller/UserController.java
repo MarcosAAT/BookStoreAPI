@@ -30,4 +30,5 @@ public class UserController {
         userService.postUser(user);
         return user;
     }
+
 }
