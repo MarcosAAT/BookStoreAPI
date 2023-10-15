@@ -1,15 +1,30 @@
 package com.getdata.restcall_test1.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.awt.print.Book;
+import java.util.Date;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "ratings")
 public class Rating {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    private Long id;
+
+    private Date datestamp;
+
+    @ManyToOne
+    private User user;
+    @ManyToOne
+     private Book book;
+
     private String ISBN;
 
     @Column(name = "rating")

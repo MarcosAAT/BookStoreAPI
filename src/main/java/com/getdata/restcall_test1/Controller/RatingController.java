@@ -1,6 +1,7 @@
 package com.getdata.restcall_test1.Controller;
 
 
+import com.getdata.restcall_test1.Entity.Comment;
 import com.getdata.restcall_test1.Entity.Rating;
 import com.getdata.restcall_test1.Service.RatingService;
 import com.getdata.restcall_test1.Entity.Books;
@@ -30,6 +31,18 @@ public class RatingController {
         List<Rating> ratings = ratingService.getRatingsByValue(ratingValue);
         return ResponseEntity.ok(ratings);
     }
+    @PostMapping
+    public ResponseEntity<Comment> createComment(@RequestBody Comment comment) {
+        Comment createdComment = commentService.createComment(comment);
+        return ResponseEntity.ok(createdComment);
+    }
+
+    @GetMapping("/book/{ISBN}")
+    public ResponseEntity<List<Comment>> getCommentsByBook(@PathVariable String ISBN) {
+        List<Comment> comments = commentService.getCommentsByBookISBN(ISBN);
+        return ResponseEntity.ok(comments);
+    }
+
 
     // to search for ratings http://localhost:8080/ratings/books/5
 }
