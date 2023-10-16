@@ -23,5 +23,3 @@ public class RatingService {
         return ratingRepo.findBooksByRatingOrHigher(ratingValue);
     }
 }
-
-

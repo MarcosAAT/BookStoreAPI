@@ -12,7 +12,7 @@ public interface RatingRepo extends JpaRepository<Rating, Long> {
 
 
     List<Rating> findByRating(Integer ratingValue);
-    List<Rating> findByBookISBN(String ISBN);
+
 
     @Query("SELECT b from Books b JOIN Rating r ON b.ISBN = r.ISBN WHERE r.rating >= :ratingValue")
     List<Books> findBooksByRatingOrHigher(@Param("ratingValue") Integer ratingValue);
