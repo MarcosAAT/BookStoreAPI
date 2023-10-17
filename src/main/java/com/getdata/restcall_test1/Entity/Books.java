@@ -56,7 +56,6 @@ public class Books {
     @Column(name = "ISBN")
     private String ISBN;
 
-    @Getter
     @Setter
     @ManyToOne
     @JoinColumn(name = "AuthorID")
