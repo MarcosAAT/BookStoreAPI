@@ -26,9 +26,19 @@ public class BooksController {
         List<Books> books = booksService.getBestSellingBooks();
         return ResponseEntity.ok(books);
     }
+    @PutMapping("/{publisher}/{discountPercent}")
+    public ResponseEntity<Void> updateBookPrices(
+            @PathVariable String publisher,
+            @PathVariable double discountPercent
+    ) {
+        booksService.updateBookPrices(publisher, discountPercent);
+        return ResponseEntity.ok().build();
+    }
 
     //http://localhost:8080/books/Fantasy    for genre
     //http://localhost:8080/books/Best Sellers   for best-seller
+    //http://localhost:8080/books/publisher/discount?publisher=Bantam&discountPercent=5     discount for publisher
+    //http://localhost:8080/books/Vintage/5               a more simple way to update price
 
 }
 
