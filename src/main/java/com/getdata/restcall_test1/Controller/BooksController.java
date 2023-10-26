@@ -28,7 +28,7 @@ public class BooksController {
     }
 
     //http://localhost:8080/books/Fantasy    for genre
-    //http://localhost:8080/books/Best Seller   for best-seller
+    //http://localhost:8080/books/Best Sellers   for best-seller
 
 }
 
