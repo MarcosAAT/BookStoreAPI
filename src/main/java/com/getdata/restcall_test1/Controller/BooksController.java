@@ -15,18 +15,19 @@ public class BooksController {
     @Autowired
     private BooksService booksService;
 
-    @GetMapping("/{genre}")
+    @GetMapping("/genre/{genre}")
     public ResponseEntity<List<Books>> getBooksByGenre(@PathVariable String genre) {
         List<Books> books = booksService.getBooksByGenre(genre);
         return ResponseEntity.ok(books);
     }
 
-    @GetMapping("/Best Sellers")
+    @GetMapping("/best-sellers")
     public ResponseEntity<List<Books>> getBestSellingBooks() {
         List<Books> books = booksService.getBestSellingBooks();
         return ResponseEntity.ok(books);
     }
-    @PutMapping("/{publisher}/{discountPercent}")
+
+    @PutMapping("/update-prices/{publisher}/{discountPercent}")
     public ResponseEntity<Void> updateBookPrices(
             @PathVariable String publisher,
             @PathVariable double discountPercent
@@ -35,7 +36,7 @@ public class BooksController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/{isbn}")
+    @GetMapping("/isbn/{isbn}")
     public ResponseEntity<Books> getBookByISBN(@PathVariable String isbn) {
         Books book = booksService.getBookByISBN(isbn);
         if (book != null) {
@@ -44,14 +45,16 @@ public class BooksController {
             return ResponseEntity.notFound().build();
         }
     }
+}
+
 
 
     //http://localhost:8080/books/Fantasy    for genre
     //http://localhost:8080/books/Best Sellers   for best-seller
     //http://localhost:8080/books/publisher/discount?publisher=Bantam&discountPercent=5     discount for publisher
     //http://localhost:8080/books/Vintage/5               a more simple way to update price
-    //http://localhost:8080/books/9780743210898 for isbn
-}
+    //GET http://localhost:8080/books/isbn/9780743210898 for isbn
+
 
 
 
