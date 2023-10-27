@@ -35,11 +35,22 @@ public class BooksController {
         return ResponseEntity.ok().build();
     }
 
+    @GetMapping("/{isbn}")
+    public ResponseEntity<Books> getBookByISBN(@PathVariable String isbn) {
+        Books book = booksService.getBookByISBN(isbn);
+        if (book != null) {
+            return ResponseEntity.ok(book);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
     //http://localhost:8080/books/Fantasy    for genre
     //http://localhost:8080/books/Best Sellers   for best-seller
     //http://localhost:8080/books/publisher/discount?publisher=Bantam&discountPercent=5     discount for publisher
     //http://localhost:8080/books/Vintage/5               a more simple way to update price
-
+    //http://localhost:8080/books/9780743210898 for isbn
 }
 
 
