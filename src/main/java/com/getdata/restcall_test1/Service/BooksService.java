@@ -2,6 +2,7 @@ package com.getdata.restcall_test1.Service;
 
 import com.getdata.restcall_test1.Repository.BookRepo;
 import com.getdata.restcall_test1.Entity.Books;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,4 +39,17 @@ public class BooksService {
         Optional<Books> bookOptional = bookRepo.findById(isbn);
         return bookOptional.orElse(null);
     }
+
+
+    @Transactional
+    public void updateBookPrices(String publisher, double discountPercent) {
+        List<Books> books = bookRepo.findByPublisher(publisher);
+        for (Books book : books) {
+            double newPrice = book.getPrice() * (1 - discountPercent / 100);
+            book.setPrice(newPrice);
+            bookRepo.save(book);
+        }
+    }
+
+
 }

@@ -22,6 +22,8 @@ public class RatingService {
     public List<Books> getBooksByRatingOrHigher(Integer ratingValue) {
         return ratingRepo.findBooksByRatingOrHigher(ratingValue);
     }
+
+    //test
 }
 
 
