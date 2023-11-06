@@ -1,5 +1,8 @@
 package com.getdata.restcall_test1.Entity;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "books")
@@ -12,96 +15,50 @@ public class Books {
 
     public Books() {}
 
-    @Id
+    @Getter
+    @Setter
     @Column(name = "BookName")
     private String bookName;
 
+    @Getter
+    @Setter
+    @Column(name = "BookDesc")
+    private String bookDesc;
+
+    @Getter
+    @Setter
+    @Column(name = "Price")
+    private double price;
+
+    @Getter
+    @Setter
     @Column(name = "Genre")
     private String genre;
 
+    @Getter
+    @Setter
+    @Column(name = "Publisher")
+    private String publisher;
+
+    @Getter
+    @Setter
     @Column(name = "CopiesSold")
     private int copiesSold;
 
+    @Getter
+    @Setter
+    @Column(name = "YearPublished")
+    private int yearPublished;
+
+    @Getter
+    @Setter
+    @Id
     @Column(name = "ISBN")
     private String ISBN;
 
-    public String getBookName() {
-        return this.bookName;
-    }
+    @Setter
+    @ManyToOne
+    @JoinColumn(name = "AuthorID")
+    private Author author;
 
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
-    }
-
-    public String getGenre() {
-        return this.genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public int getCopiesSold() {
-        return copiesSold;
-    }
-
-    public void setCopiesSold(int copiesSold) {
-        this.copiesSold = copiesSold;
-    }
-
-    public String getISBN() {
-        return ISBN;
-    }
-
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
-    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
