@@ -13,8 +13,8 @@ public class UserService {
     @Autowired
     private UserRepo userRepo;
 
-    public List<User> getUsersByUsername(String Username){
-        return userRepo.findByUsername(Username);
+    public List<User> getUsersByUsername(String username){
+        return userRepo.findByUsername(username);
     }
 
     public User postUser(User user){
