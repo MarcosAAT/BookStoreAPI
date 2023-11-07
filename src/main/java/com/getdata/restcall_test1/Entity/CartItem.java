@@ -12,7 +12,7 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
-    private String itemId;
+    private Long itemId;
 
     @ManyToOne
     @JoinColumn(name = "cartId")

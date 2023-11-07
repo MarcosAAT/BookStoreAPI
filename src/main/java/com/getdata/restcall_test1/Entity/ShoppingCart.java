@@ -13,7 +13,7 @@ public class ShoppingCart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String cartId;
+    private Long cartId;
 
     @OneToOne
     @JoinColumn(name = "UserID")
