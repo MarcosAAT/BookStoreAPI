@@ -15,7 +15,7 @@ public class Wishlists {
     }
 
     public Wishlists(){
-        wishlistName="No Name Entered";
+        wishlistName="My Wishlist";
     }
 
     @Getter

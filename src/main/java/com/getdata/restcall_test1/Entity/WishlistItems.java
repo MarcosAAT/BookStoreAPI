@@ -3,31 +3,34 @@ package com.getdata.restcall_test1.Entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-// import java.util.List;
+import java.util.List;
 
 @Entity
 @Table(name = "wishlistItems")
 public class WishlistItems {
 
-    public WishlistItems(Books ISBN){
+    public WishlistItems(Books ISBN, String wishID){
         this.ISBN=ISBN;
+        this.wishID=wishID;
         //see if user is necessary here
     }
 
     public WishlistItems(){
         ISBN=null;
+        wishID=null;
     }
 
     @Getter
     @Setter
-    @Id
-    @Column(name = "WishID")
-    private String WishID;
+    @ManyToMany
+    @JoinColumn(name = "wishID")
+    private String wishID;
 
     @Getter
     @Setter
+    @Id
     @Column(name = "wishlistItemID")
-    private String wishlistName;
+    private String wishlistItemID;
 
     @Getter
     @Setter

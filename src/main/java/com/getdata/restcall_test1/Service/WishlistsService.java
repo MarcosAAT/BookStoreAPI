@@ -25,8 +25,8 @@ public class WishlistsService {
     //     return WishlistsRepo.findAll();
     // }
 
-    public Optional<Wishlists> getWishlistById(String ISBN) {
-        return wishlistsRepo.findById(ISBN);
+    public Optional<Wishlists> getWishlistById(String WishID) {
+        return wishlistsRepo.findById(WishID);
     }
 
     // public List<Wishlists> findWishlistsByCustomName(String customName) {

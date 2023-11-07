@@ -35,12 +35,13 @@ public class WishlistsController {
     @GetMapping("/{WishID}")
     public ResponseEntity<Wishlists> getWishlistById(@PathVariable String WishID) {
         Optional<Wishlists> optionalWishlist = wishlistsService.getWishlistById(WishID);
+        System.out.println(WishID);
 
-        // if (optionalWishlist.isPresent()) {
+        if (optionalWishlist.isPresent()) {
             return ResponseEntity.ok(optionalWishlist.get());
-        // } else {
-        //     return ResponseEntity.notFound().build();
-        // }
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     //http://localhost:8080/wishlists/U0000000
