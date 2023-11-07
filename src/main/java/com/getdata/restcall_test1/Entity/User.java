@@ -1,49 +1,26 @@
 package com.getdata.restcall_test1.Entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "Users")
-@NoArgsConstructor
-@AllArgsConstructor
 public class User {
 
-
-    @Getter
-    @Setter
     @Id
-    @Column(name = "UserID")
-    private String UserID;
+    private String userID;
 
-    @Getter
-    @Setter
     @Column(name = "Username", unique = true)
     private String username;
 
-    @Getter
-    @Setter
-    @Column(name = "PW")
-    private String PW;
+    @Column(name = "Password")
+    private String password;
 
-    @Getter
-    @Setter
     @Column(name = "FullName")
-    private String FullName;
+    private String fullName;
 
-    @Getter
-    @Setter
     @Column(name = "EmailAddress")
-    private String EmailAddress;
+    private String emailAddress;
 
-    @Getter
-    @Setter
     @Column(name = "HomeAddress")
-    private String HomeAddress;
+    private String homeAddress;
 }
