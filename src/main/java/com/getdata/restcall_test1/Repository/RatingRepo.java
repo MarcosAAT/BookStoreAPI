@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface RatingRepo extends JpaRepository<Rating, Long> {
 
@@ -16,5 +17,6 @@ public interface RatingRepo extends JpaRepository<Rating, Long> {
 
     @Query("SELECT b from Books b JOIN Rating r ON b.ISBN = r.ISBN WHERE r.rating >= :ratingValue")
     List<Books> findBooksByRatingOrHigher(@Param("ratingValue") Integer ratingValue);
+    Optional<Rating> findByUserIdAndISBN(String userId, String ISBN);
 
 }
