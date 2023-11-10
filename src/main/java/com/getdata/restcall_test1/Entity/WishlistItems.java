@@ -22,7 +22,6 @@ public class WishlistItems {
 
     @Getter
     @Setter
-    @ManyToMany
     @JoinColumn(name = "wishID")
     private String wishID;
 

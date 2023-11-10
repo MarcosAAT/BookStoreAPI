@@ -23,6 +23,13 @@ public class RatingService {
         return ratingRepo.findBooksByRatingOrHigher(ratingValue);
     }
 
+    public void createOrUpdateRating(String userId, String isbn, int rating) {
+        Rating ratingObj = new Rating();
+        ratingObj.setISBN(isbn);
+        ratingObj.setRating(rating);
+        ratingRepo.save(ratingObj);
+    }
+
     //test
 }
 
