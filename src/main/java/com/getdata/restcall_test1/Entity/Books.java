@@ -1,5 +1,6 @@
 package com.getdata.restcall_test1.Entity;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -56,57 +57,11 @@ public class Books {
     @Column(name = "ISBN")
     private String ISBN;
 
+    @Getter
     @Setter
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "AuthorID")
     private Author author;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
