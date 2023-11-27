@@ -29,6 +29,7 @@ public class WishlistItems {
     @Getter
     @Setter
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "wishlistItemID")
     private String wishlistItemID;
 

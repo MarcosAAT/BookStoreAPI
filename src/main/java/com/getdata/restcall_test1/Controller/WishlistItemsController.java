@@ -20,41 +20,18 @@ public class WishlistItemsController {
         this.wishlistItemsService = wishlistItemsService;
     }
 
-    @PostMapping
-    public ResponseEntity<WishlistItems> addBookItems(@RequestBody Books book, @RequestParam String WishID) {
-        WishlistItems addedBook = wishlistItemsService.addBookItems(book, WishID);
+    @PostMapping("/{wishID}/addBook/{book}")
+    public ResponseEntity<WishlistItems> addBookItems(@PathVariable Books book, @PathVariable String wishID) {
+        WishlistItems addedBook = wishlistItemsService.addBookItems(book, wishID);
         return ResponseEntity.ok(addedBook);
     }// add book
 
-    // @GetMapping("/{id}")
-    // public ResponseEntity<Wishlists> getWishlistById(@PathVariable String WishID) {
-    //     Optional<Wishlists> wishlist = wishlistsService.getWishlistById(WishID);
-    //     if (wishlist == null) {
-    //         return ResponseEntity.notFound().build();
-    //     }
-    //     return ResponseEntity.ok(wishlist.get());
-    // }
+    @DeleteMapping("/{wishID}/removeBook/{book}")
+    public ResponseEntity<Void> deleteWishlistItem(@PathVariable Books book, @PathVariable String wishID) {
+        wishlistItemsService.deleteWishlistItemById(wishID, book);
 
-    // @GetMapping("/{WishID}/books")
-    // public ResponseEntity<WishlistItems> getWishlistBooksById(@PathVariable String WishID) {
-    //     Optional<WishlistItems> optionalWishlist = wishlistItemsService.getWishlistById(WishID);
-
-    //     // if (optionalWishlist.isPresent()) {
-    //         return ResponseEntity.ok(optionalWishlist.get());
-    //     // } else {
-    //     //     return ResponseEntity.notFound().build();
-    //     // }
-    // } // doesnt work for multiple books
-
-    // @GetMapping("/{WishID}/books")
-    // public ResponseEntity<List<WishlistItems>> getWishlistBooksById(@PathVariable String WishID) {
-    //     List<WishlistItems> books = wishlistItemsService.getWishlistBooksById(WishID);
-
-    //     if (books.isEmpty()) {
-    //         return ResponseEntity.notFound().build();
-    //     }
-    //     return ResponseEntity.ok(books);
-    // } //the one used before
+        return ResponseEntity.noContent().build();
+    }
     
     @GetMapping("/{wishID}/books")
     public ResponseEntity<List<WishlistItems>> getWishlistItemsByWishID(@PathVariable String wishID) {
