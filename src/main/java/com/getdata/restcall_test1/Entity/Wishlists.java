@@ -21,6 +21,7 @@ public class Wishlists {
     @Getter
     @Setter
     @Id
+    //@OneToMany
     @Column(name = "WishID")
     private String WishID;
 

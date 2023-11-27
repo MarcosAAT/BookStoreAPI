@@ -22,7 +22,7 @@ public class WishlistItems {
 
     @Getter
     @Setter
-    @ManyToMany
+    //@OneToMany
     @JoinColumn(name = "wishID")
     private String wishID;
 

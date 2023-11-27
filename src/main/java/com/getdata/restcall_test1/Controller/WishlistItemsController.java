@@ -57,8 +57,8 @@ public class WishlistItemsController {
     // } //the one used before
     
     @GetMapping("/{wishID}/books")
-    public ResponseEntity<List<Books>> getWishlistItemsByWishID(@PathVariable String wishID) {
-        List<Books> books = wishlistItemsService.getBooksByWishID(wishID);
+    public ResponseEntity<List<WishlistItems>> getWishlistItemsByWishID(@PathVariable String wishID) {
+        List<WishlistItems> books = wishlistItemsService.getBooksByWishID(wishID);
     
         if (books.isEmpty()) {
             return ResponseEntity.notFound().build();

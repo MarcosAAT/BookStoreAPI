@@ -39,7 +39,7 @@ public class WishlistItemsService {
     //     return wishlistItemsRepo.findByWishID(wishID);
     // }
 
-    public List<Books> getBooksByWishID(String wishID) {
+    public List<WishlistItems> getBooksByWishID(String wishID) {
         return wishlistItemsRepo.findBooksByWishID(wishID);
     }
 

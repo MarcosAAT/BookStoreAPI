@@ -13,7 +13,7 @@ public interface WishlistItemsRepo extends JpaRepository<WishlistItems, String>{
 
     // List<WishlistItems> findByWishID(String wishID);
 
-    List<Books> findBooksByWishID(String wishID);
+    List<WishlistItems> findBooksByWishID(String wishID);
 
     // WishlistItems save(WishlistItems bookItem);
 }
