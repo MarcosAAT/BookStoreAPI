@@ -1,5 +1,6 @@
 package com.getdata.restcall_test1.Controller;
 
+import com.getdata.restcall_test1.Entity.User;
 import com.getdata.restcall_test1.Entity.Wishlists;
 import com.getdata.restcall_test1.Service.WishlistsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,20 +18,11 @@ public class WishlistsController {
         this.wishlistsService = wishlistsService;
     }
 
-    @PostMapping
-    public ResponseEntity<Wishlists> createWishlist(@RequestBody String wishlistName) {
-        Wishlists createdWishlist = wishlistsService.createWishlist(wishlistName);
+    @PostMapping("/{userID}/addWishlist")
+    public ResponseEntity<Wishlists> createWishlist(@RequestBody String wishlistName, @PathVariable User userID) {
+        Wishlists createdWishlist = wishlistsService.createWishlist(wishlistName, userID);
         return ResponseEntity.ok(createdWishlist);
     }
-
-    // @GetMapping("/{id}")
-    // public ResponseEntity<Wishlists> getWishlistById(@PathVariable String WishID) {
-    //     Optional<Wishlists> wishlist = wishlistsService.getWishlistById(WishID);
-    //     if (wishlist == null) {
-    //         return ResponseEntity.notFound().build();
-    //     }
-    //     return ResponseEntity.ok(wishlist.get());
-    // }
 
     @GetMapping("/{WishID}")
     public ResponseEntity<Wishlists> getWishlistById(@PathVariable String WishID) {
@@ -43,7 +35,5 @@ public class WishlistsController {
             return ResponseEntity.notFound().build();
         }
     }
-
-    //http://localhost:8080/wishlists/U0000000
 
 }
