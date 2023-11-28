@@ -5,7 +5,7 @@ import com.getdata.restcall_test1.Service.BooksService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.http.HttpStatus;
 import java.util.List;
 
 @RestController
@@ -44,6 +44,11 @@ public class BooksController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+    @PostMapping("/createBook")
+    public ResponseEntity<Void> createBook(@RequestBody Books book) {
+        booksService.createBook(book);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
 

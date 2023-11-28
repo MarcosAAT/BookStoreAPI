@@ -1,5 +1,7 @@
 package com.getdata.restcall_test1.Entity;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 
 @Entity
@@ -16,24 +18,19 @@ public class Author {
     }
 
     @Id
+    @Getter
+    @Setter
     @Column(name = "AuthorID")
     private String AuthorID;
 
+    @Getter
+    @Setter
     @Column(name = "FirstName")
     private String FirstName;
 
+    @Getter
+    @Setter
     @Column(name = "LastName")
     private String LastName;
 
-    public String getAuthorID(){
-        return this.AuthorID;
-    }
-
-    public String getFirstName(){
-        return this.FirstName;
-    }
-
-    public String getLastName(){
-        return this.LastName;
-    }
 }
