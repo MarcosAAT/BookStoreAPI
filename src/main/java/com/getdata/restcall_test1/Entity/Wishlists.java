@@ -18,9 +18,16 @@ public class Wishlists {
         wishlistName="My Wishlist";
     }
 
+    public Wishlists(String wishlistName, User userID) {
+        this.wishlistName=wishlistName;
+        this.user=userID;
+    }
+
     @Getter
     @Setter
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@OneToMany
     @Column(name = "WishID")
     private String WishID;
 

@@ -22,13 +22,14 @@ public class WishlistItems {
 
     @Getter
     @Setter
-    @ManyToMany
+    //@OneToMany
     @JoinColumn(name = "wishID")
     private String wishID;
 
     @Getter
     @Setter
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "wishlistItemID")
     private String wishlistItemID;
 
